@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  nuxt:
+    image: ${IMAGE_APP_TAG}
+    build: .
+    restart: always
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.prod
+    command:
+      "npm run start"
+
+  nginx:
+    image: ${NGINX_IMAGE_APP_TAG}
+    build: ./nginx
+    ports:
+      - "4000:80"
+    depends_on:
+      - nuxt
