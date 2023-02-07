@@ -4,7 +4,7 @@ if (debugMode) {
   console.log(process.env)
 }
 
-const API_BASE = 'http://api.gym-time.ir'
+const API_BASE = 'localhost:8000'
 const options = {
   server: {
     host: '0.0.0.0',
